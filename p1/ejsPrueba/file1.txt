@@ -1,0 +1,34 @@
+A 9818181a8829304*
+a 98181818829304*
+a 98181818829304^
+A 9a8181818829304^
+
+A OENOnvoneo *
+a OENOnvoneo *
+A OENOnvoneo ^
+a OENOnvoneo ^
+6 OENOnvoneo ^
+
+A98181818829304*
+a98181818829304*
+a98181818829304^
+A9a8181818829304^
+
+AOENOnvoneo*
+aOENOnvoneo*
+AOENOnvoneo^
+aOENOnvoneo^
+6OENOnvoneo^
+
+12
+12345
+123456
+1987173751
+
+A* 
+A** 
+A** * 
+C*
+C****A
+C** **A
+C^
