@@ -3,7 +3,8 @@
 2. grep -E "^([^[:digit:]]*[[:digit:]]{2})$" ejsPrueba/file2.txt
 
 3. grep -E "^([^a]*[a][eiou]){3,}([[:alnum:]])*$" ejsPrueba/file3.txt
-Duda, ¿por qué no funciona? Mi razonamiento es que debería de funcionar ya que el primer elemento sería una repetición de caracteres distintos de 'a' en un rango entre 0 e Inf. ¿Qué no estoy viendo?
+Duda, ¿por qué no funciona? Mi razonamiento es que debería de funcionar ya que el primer elemento sería una repetición de caracteres distintos de 'a' en un rango entre 0 e Inf. ¿Qué no estoy viendo? En cambio si quito la restricción para el principio de línea, creo que me funciona:
+grep -E "([^a]*[a][eiou]){3,}([[:alnum:]])*$" ejsPrueba/file3.txt
 
 4. grep -E "^([^a]*[a]){0,3}([^a])*$" ejsPrueba/file4.txt
 
