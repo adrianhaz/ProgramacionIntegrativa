@@ -1,0 +1,6 @@
+Foo bar nofoo bar
+bar foo bar
+nofoo nobar nofoo
+foo bar foo bar
+nofoo nobar nofoo
+bar foo foo
