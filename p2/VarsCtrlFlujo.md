@@ -61,7 +61,8 @@ Es posible modificar el entorno de un programa a lanzar sin afectar permanenteme
 ##	**Expansión aritmética**
 >	Los operadores aritméticos del shell son similares a los existentes en C.\
 *A pesar de que algunos contienen caracteres especiales, no hay que escaparlos, ya que* **deben usarse dentro de un entorno delimitado por:**
->	**$(( ... ))**
+>	**$(( ... ))**\
+>	La aritmética de POSIX => variables enteras de tipo **long**
 
 ### **VARIABLES**
 
@@ -139,4 +140,58 @@ Es posible modificar el entorno de un programa a lanzar sin afectar permanenteme
 
 ###	**OPERADORES**
 
-###	
+>###	**++ --**
+>>	Post-incremento / post-decremento
+
+>###	**+ - ! ~**
+>>	Suma y resta unitarios, negación lógia y 'bit a bit'
+
+>###	**\* / %**
+>>	Multiplicación, división y resto (módulo).
+
+>###	**+ -**
+>>	Suma y resta.
+
+>###	**<< >>**
+>>	Bit-shift hacia izquierda y derecha
+
+>###	**< <= > >=**
+>>	Comparaciones.
+
+>###	**== !=**
+>>	Igualdad y desigualdad.
+
+>###	**&**
+>>	AND 'bit a bit'
+
+>###	**^**
+>>	XOR 'bit a bit'
+
+>###	**|**
+>>	OR 'bit a bit'
+
+>###	**&&**
+>>	AND lógico (cortocircuito).
+
+>###	**||**
+>>	OR lógico (cortocircuito).
+
+>###	**?:**
+>>	Expresión condicional.
+
+>###	**= += \*= /= %= &= ^= <<= >>= |=**
+>>	Operadores de asignación.
+
+##	**Estatus de salida.**
+Se accede mediante **$?** Solo se devuelven al proceso padre los 8 bits menos significativos del estatus de salida => **$? > 255 ? return ($? mod 256) : $?**\
+Se puede especificar con **exit**
+
+**VALORES:**
+
+###	**0** 		=> ejecución exitosa.
+###	**>0** 		=> fallo durante redirección | expansión aritmética.
+###	**1-125**	=> fallo durante ejecución.
+###	**126**		=> comando existe, pero no es ejecutable.
+###	**127**		=> comando no encontrado.
+###	**>128**	=> ejecución falló por la recepción de una señal.
+
