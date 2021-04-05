@@ -218,7 +218,7 @@ then\
 statements-if-true\
 fi
 
-Lo anterior es **equivalente a:**
+Lo anterior es **equivalente a:**\
 if [ "$str1" = "$str2" ]\
 then\
 statements-if-true\
@@ -262,12 +262,12 @@ esac
 
 ##	**Lazos**
 ###	**for**
-for i in <list>\
+for i in <\list>\
 do\
 	loop-body\
 done
 
--	Si "in <list>" se omite, iterará sobre los parámetros posicioneales.
+-	Si "in <\list>" se omite, iterará sobre los parámetros posicioneales.
 
 ###	**while**
 while condition\
