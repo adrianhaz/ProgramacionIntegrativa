@@ -295,4 +295,3 @@ function-code\
 -	Tienen que definirse antes de ser usadas.
 -	Pueden estar guardadas en otro file, siendo llamadas con el comando '**.**'
 -	Los argumentos especiales del shell que hacen referencia a los parámetros posicionales => parámetros pasados a la función.
--	
