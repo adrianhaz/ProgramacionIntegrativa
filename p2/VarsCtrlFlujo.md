@@ -195,3 +195,104 @@ Se puede especificar con **exit**
 ###	**127**		=> comando no encontrado.
 ###	**>128**	=> ejecución falló por la recepción de una señal.
 
+##	**Bucles**
+###	**if -- elif -- else -- fi**
+if pipeline\
+	[ pipeline ... ]\
+then\
+	statements-if-true-1\
+[ elif pipeline\
+	[ pipeline ... ]\
+	statements-if-true-2\
+...]\
+[ else\
+	statements-if-all-false ]\
+fi
+
+Los *pipelines* se evalúan con: **NOT, AND, OR** ; *AND y OR en cortocircuito*
+
+###	**test**
+Se usa para comprobar condiciones.\
+if test "$str1" = "$str2"\
+then\
+statements-if-true\
+fi
+
+Lo anterior es **equivalente a:**
+if [ "$str1" = "$str2" ]\
+then\
+statements-if-true\
+fi
+
+-	0 argumentos => return false (1)
+-	1 argumento =>	
+	*	si $1 != NULL => true (0)
+	*	si $1 == NULL => false (1)
+-	2 argumentos =>
+	*	si $1 == '!' => negar resultado 'test $2'
+	*	si $1 == op.unario => resultado de la comprobación
+	*	- => no especificado
+-	3 argumentos =>
+	*	si $1 == '!' => negar resultado 'test $2 $3'
+	*	si $2 == op.binario => resultado de la comprobación
+	*	-	=> no especificado
+-	4 argumentos =>
+	*	si $1 == '!' => negar resultado 'test $2 $3 $4'
+	*	-	=> no especificado
+-	> 4 argumentos => no especificado
+
+**Al usar el comando 'test' debemos de tener en cuenta:**
+-	Usar **siempre los argumentos en comillas**
+-	En **comparaciones entre strings** poner **una 'x' delante** del string ("$answer" = "yes" -> "x$answer" = "xyes")
+-	Para **test numéricos usar enteros**
+
+### **case**
+case $var in\
+val1)\
+statements-if-val1\
+;;\
+val2)|val3)\
+statements-if-val2-or-val3\
+;;\
+·\
+·\
+\*)\
+statements-if-no-match\
+esac
+
+##	**Lazos**
+###	**for**
+for i in <list>\
+do\
+	loop-body\
+done
+
+-	Si "in <list>" se omite, iterará sobre los parámetros posicioneales.
+
+###	**while**
+while condition\
+do\
+loop-body\
+done
+
+### **until**
+until coniditon\
+do\
+loop-body\
+done
+
+###	**break y continue**
+Pueden estar acompañados de un entero para indicar cuántos lazos anidados deben saltarse.
+
+###	**shift**
+Procesa los parámetros posicionales de un script. Cada vez que se ejecuta, el parámetro $1 se descarta. El $2 -> $1, el $3 -> $2 ...\
+Alternativa: **getopts**
+
+##	**Funciones del shell**
+function_name() {\
+function-code\
+}
+-	Tienen que definirse antes de ser usadas.
+-	Pueden estar guardadas en otro file, siendo llamadas con el comando '**.**'
+-	Los argumentos especiales del shell que hacen referencia a los parámetros posicionales => parámetros pasados a la función.
+-	
